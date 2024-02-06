@@ -1,0 +1,14 @@
+<!-- Display Notice Message in Green -->
+<p class="alert alert-success"><%= notice %></p>
+
+<!-- Render Course Details -->
+<%= render @course %>
+
+<div class="mt-3">
+  <!-- Edit and Back Links with Bootstrap Styling -->
+  <%= link_to "Edit this course", edit_course_path(@course), class: "btn btn-warning" %> |
+  <%= link_to "Back to courses", courses_path, class: "btn btn-secondary" %>
+
+  <!-- Destroy Button with Bootstrap Styling -->
+  <%= button_to "Destroy this course", @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", style: "margin-left: 10px;" %>
+</div>

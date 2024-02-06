@@ -1,0 +1,23 @@
+<!-- app/views/kaminari/_paginator.html.erb -->
+
+<nav aria-label="Page navigation" class="mt-4">
+  <ul class="pagination justify-content-end">
+    <% if current_page > 1 %>
+      <li class="page-item">
+        <%= link_to_unless current_page == 1, raw('&laquo;'), url_for(page: current_page - 1), class: 'page-link' %>
+      </li>
+    <% end %>
+
+    <% 1.upto(total_pages) do |num| %>
+      <li class="page-item <%= 'active' if num == current_page %>">
+        <%= link_to num, url_for(page: num), class: 'page-link' %>
+      </li>
+    <% end %>
+
+    <% if current_page < total_pages %>
+      <li class="page-item">
+        <%= link_to_unless current_page == total_pages, raw('&raquo;'), url_for(page: current_page + 1), class: 'page-link' %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

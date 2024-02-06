@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with model: @department do |form| %>
+     
+      <div class="mb-3">
+        <%= form.label :Department_name, class: "form-label" %><br>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+      <div class="text-center">
+        <%= form.submit  class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

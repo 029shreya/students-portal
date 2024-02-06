@@ -1,0 +1,22 @@
+<!-- app/views/departments/index.html.erb -->
+
+<div class="container">
+  <h1 class="mt-5">Departments</h1>
+  <%= link_to 'New Department', new_department_path, class: "btn btn-success mt-3" %>
+
+  <% @departments.each do |department| %>
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= department.name %></h5>
+        <!-- Add other details you want to display -->
+
+        <div class="d-flex justify-content-between">
+          <%= link_to 'Show', department, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_department_path(department), class: "btn btn-secondary" %>
+          <%= button_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>

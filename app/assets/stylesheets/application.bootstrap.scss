@@ -1,0 +1,10 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import "sb-admin-2";
+/* Add this to your application.scss or a custom stylesheet */
+.navbar-nav .nav-item .nav-link:hover {
+  /* Add your magic styles here */
+  color: #ffcc00; /* Change color on hover */
+  font-weight: bold; /* Increase font weight on hover */
+  /* Add any other styles you'd like */
+}

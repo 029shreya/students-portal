@@ -1,0 +1,97 @@
+<!-- app/views/students/show.html.erb -->
+
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-body">
+      <h1 class="card-title text-center mb-4">Student Detail</h1>
+      
+      <!-- Display student information -->
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>First Name:</strong>
+        </div>
+        <div class="col-md-9">
+          <%= @student.full_name.capitalize %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Age:</strong>
+        </div>
+        <div class="col-md-9">
+          <%= @student.age %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Email:</strong>
+        </div>
+        <div class="col-md-9">
+          <%= @student.email %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Contact Number:</strong>
+        </div>
+        <div class="col-md-9">
+          <%= @student.contact_number %>
+        </div>
+      </div>
+
+      <!-- Display profile image if available -->
+      <div class="mb-3 text-right">
+        <% if @student.profile_image.attached? %>
+          <%= image_tag @student.profile_image, class: "img-fluid float-left mr-3" %> <!-- Add margin to separate the image from text -->
+        <% else %>
+          <p>No profile image available</p>
+        <% end %>
+      </div>
+
+      <!-- Display blogs if available -->
+      <% if @blogs.present? %>
+        <div class="mt-4">
+          <h2 class="card-title">Blogs</h2>
+          <ul class="list-group">
+            <% @blogs.each_with_index do |blog, index| %>
+              <li class="list-group-item">
+                <h5 class="mb-2"><strong>Blog Number <%= index + 1 %></strong></h5>
+                <h6 class="mb-2"><strong>Title:</strong> <%= blog.title %></h6>
+                <p class="mb-0"><strong>Content:</strong> <%= blog.body %></p>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% else %>
+        <p>No blogs available for this student.</p>
+      <% end %>
+      
+      <!-- Display courses if available -->
+      <% if @courses.present? %>
+        <div class="mt-4">
+          <h2 class="card-title">Courses</h2>
+          <ul class="list-group">
+            <% @courses.each_with_index do |course, index| %>
+              <li class="list-group-item">
+                <h5 class="mb-2"><strong>Course Number <%= index + 1 %></strong></h5>
+                <h6 class="mb-2"><strong>Title:</strong> <%= course.title %></h6>
+                <p class="mb-0"><strong>Content:</strong> <%= course.body %></p>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% else %>
+        <p>No courses available for this student.</p>
+      <% end %>
+      
+      <!-- Back and Edit buttons -->
+      <div class="d-flex justify-content-between mt-4">
+        <%= link_to 'Back', students_path, class: "btn btn-secondary" %>
+        <%= link_to 'Edit', edit_student_path(@student), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
