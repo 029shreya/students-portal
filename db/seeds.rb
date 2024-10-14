@@ -25,4 +25,5 @@
  Student.all.each do |student|
  	student.blogs.create(title: "dummy blog for student #{student.id}", body: "creating data for assoiciation has many and belong to")
  	student.blogs.create(title: "dummy blog for student #{student.id}", body: "creating data for assoiciation has many and belong to")
- endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+ end
+ AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
